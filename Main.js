@@ -44,13 +44,13 @@ var side_walls;
 var side_walls_positions = [-4.5, 0, 4.5];
 var scene_character_jumping_sliding = false;
 
-var models_url = ['http://localhost:8000/character.gltf',
-				  'http://localhost:8000/wall.gltf',
-				  'http://localhost:8000/high wall.gltf',
-				  'http://localhost:8000/hurdle.gltf',
-				  'http://localhost:8000/athletics.gltf',
-				  'http://localhost:8000/tree.gltf',
-				  'http://localhost:8000/arc.gltf'];
+var models_url = ['./models/character.gltf',
+				  './models/wall.gltf',
+				  './models/high wall.gltf',
+				  './models/hurdle.gltf',
+				  './models/athletics.gltf',
+				  './models/tree.gltf',
+				  './models/arc.gltf'];
 
 var idx_to_key = ["high wall", "hurdle", "arc"];
 
