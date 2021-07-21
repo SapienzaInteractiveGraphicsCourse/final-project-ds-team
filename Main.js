@@ -37,8 +37,6 @@ var resetRunAnimationBuffer = {};
 //collision related stuff
 var raycasters = [];
 var collision_detected;
-var raycaster_arrows = [];
-var raycaster_pos_update = new THREE.Vector3();
 
 var side_walls;
 var side_walls_positions = [-4.5, 0, 4.5];
@@ -353,15 +351,6 @@ function initCollisionModule()
 	worldCoord = new THREE.Vector3();
 	scene_character_parts["Bone_neck"].getWorldPosition(worldCoord);
 	raycasters.push(new THREE.Raycaster(worldCoord, direction, 0, 0.5));
-
-	raycaster_arrows.forEach(arrow => {scene.remove(arrow)});
-	raycaster_arrows = [];
-	raycasters.forEach(elem =>
-	{
-		var arrow_helper = new THREE.ArrowHelper(elem.ray.direction, elem.ray.origin, 10, 0xff0000)
-		scene.add(arrow_helper);
-		raycaster_arrows.push(arrow_helper);
-	});
 }
 
 function loadModel(gltfLoader, url)
@@ -392,15 +381,6 @@ function execute_animation()
 		var row_to_delete = scene_elements.shift();
 		row_to_delete.forEach(elem => {if(elem != null) scene.remove(elem);});
 	}
-	
-	raycaster_arrows.forEach(arrow => {scene.remove(arrow)});
-	raycaster_arrows = [];
-	raycasters.forEach(elem =>
-	{
-		var arrow_helper = new THREE.ArrowHelper(elem.ray.direction, elem.ray.origin, 10, 0xff0000);
-		scene.add(arrow_helper);
-		raycaster_arrows.push(arrow_helper);
-	});
 	
 	if(scene_elements.length>2)
 	{
